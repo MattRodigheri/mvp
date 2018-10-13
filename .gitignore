@@ -28,8 +28,4 @@ dist/
 node_modules/
 bower_components/
 
-# Floobits
-.floo
-.floobit
-.floo
-.flooignore
+nasa-key.js
