@@ -8,18 +8,20 @@ class App extends React.Component {
     super();
 
     this.state = {
+      date: '',
+      searchDate: '',
       elements: 0,
       near_earth_objects: []
     }
 
     this.getData = this.getData.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.searchDate = this.searchDate.bind(this);
   }
 
   componentDidMount() {
     this.getData();
   }
-
 
   getData() {
     var today = new Date();
@@ -32,18 +34,18 @@ class App extends React.Component {
     if (day.length < 2) {
       day = '0' + String(today.getDate());
     }
-    var date = year+'-'+month+'-'+day;
+    this.state.date = year+'-'+month+'-'+day;
 
     axios.get('/asteroids', {
       params: {
-        date: date
+        date: this.state.date
       }
     })
     .then((response) => {
       console.log(response.data);
       this.setState({
         elements: response.data.element_count,
-        near_earth_objects: response.data.near_earth_objects[date]
+        near_earth_objects: response.data.near_earth_objects[this.state.date]
       })
     })
     .catch((error) => {
@@ -51,16 +53,35 @@ class App extends React.Component {
     })
   }
 
-  searchDate() {
-    console.log('test')
+  handleChange(event) {
+    this.setState({
+      searchDate: event.target.value
+    })
   }
 
+  searchDate() {
+    axios.get('/asteroids', {
+      params: {
+        date: this.state.searchDate
+      }
+    })
+    .then((response) => {
+      console.log(response.data);
+      this.setState({
+        elements: response.data.element_count,
+        near_earth_objects: response.data.near_earth_objects[this.state.searchDate]
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 
   render() {
     return (
       <div>
         <Display asteroids={this.state}/>
-        <Search searchDate={this.searchDate}/>
+        <Search searchDate={this.searchDate} handleChange={this.handleChange}/>
       </div>
     );
   }
