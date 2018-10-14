@@ -1,0 +1,9 @@
+body {
+  font-family: helvetica;
+  font-weight: lighter;
+  background-color: rgb(236, 236, 237);
+}
+
+Search {
+  color: green;
+}

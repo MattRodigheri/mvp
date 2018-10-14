@@ -16,7 +16,11 @@ module.exports = {
         loader : 'babel-loader',
         query: {
           presets: ['react', 'es2015'] //babel loader will transform react(jsx) and es6
-       }
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   }

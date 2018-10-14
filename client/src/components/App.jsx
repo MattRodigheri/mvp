@@ -2,6 +2,7 @@ import React from 'react';
 import Display from './Display.jsx';
 import Search from './Search.jsx';
 import axios from 'axios';
+import css from './../styles/App.css';
 
 class App extends React.Component {
   constructor() {
@@ -42,7 +43,6 @@ class App extends React.Component {
       }
     })
     .then((response) => {
-      console.log(response.data);
       this.setState({
         elements: response.data.element_count,
         near_earth_objects: response.data.near_earth_objects[this.state.date]
