@@ -57,6 +57,7 @@ class App extends React.Component {
     this.setState({
       searchDate: event.target.value
     })
+  console.log(event.target.value)
   }
 
   searchDate() {
@@ -66,7 +67,6 @@ class App extends React.Component {
       }
     })
     .then((response) => {
-      console.log(response.data);
       this.setState({
         elements: response.data.element_count,
         near_earth_objects: response.data.near_earth_objects[this.state.searchDate]
@@ -80,8 +80,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Display asteroids={this.state}/>
-        <Search searchDate={this.searchDate} handleChange={this.handleChange}/>
+        <div className='topBar'>
+          <div>Data provided by:</div> <image />
+        </div>
+        <div className='appContainer'>
+          <Display asteroids={this.state}/>
+          <Search searchDate={this.searchDate} handleChange={this.handleChange} />
+        </div>
       </div>
     );
   }

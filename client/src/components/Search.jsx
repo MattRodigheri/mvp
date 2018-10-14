@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import css from './../styles/Search.css';
 
 class Search extends React.Component {
   constructor(props) {
@@ -12,9 +13,9 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type='text' onChange={this.props.handleChange}/>
-        <input type='submit' value='Search a Date' onClick={this.props.searchDate}/>
+      <div className='search'>
+        <input className='searchInput' type='date' maxLength="10" onChange={this.props.handleChange}/>
+        <input className='searchSubmit' type='submit' value='Search a Date' onClick={this.props.searchDate}/>
       </div>
     )
   }

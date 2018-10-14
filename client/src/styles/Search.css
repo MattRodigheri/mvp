@@ -1,0 +1,13 @@
+.search {
+  float: left;
+  margin-left: 100px;
+}
+
+.searchInput, .searchSubmit {
+  font-family: helvetica;
+  font-weight: lighter;
+}
+
+.searchInput:focus, .searchSubmit:focus {
+  outline: none;
+}

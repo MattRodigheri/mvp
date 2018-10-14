@@ -4,7 +4,7 @@ import css from './../styles/Display.css';
 function Display(props) {
 
   return (
-    <div>
+    <div className='display'>
       <div>Number of Asteroids: {props.asteroids.elements}</div>
       <div>
         {
@@ -19,6 +19,7 @@ function Display(props) {
               <div>Velocity: {element.close_approach_data[0].relative_velocity.miles_per_hour}</div>
               <div>Distance from Earth: {element.close_approach_data[0].miss_distance.miles}</div>
               <div>{hazardous}</div>
+              <img className='asteroidImg'/>
             </div>
           )
         })

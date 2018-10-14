@@ -1,3 +1,16 @@
+.display {
+  float: left;
+  font-size: larger;
+}
+
 .element {
   margin: 50px 0;
+}
+
+.asteroidImg {
+  background-image: url('./../assets/asteroid.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
 }
