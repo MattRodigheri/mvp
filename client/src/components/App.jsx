@@ -1,8 +1,10 @@
 import React from 'react';
-import Display from './Display.jsx';
-import Search from './Search.jsx';
 import axios from 'axios';
 import css from './../styles/App.css';
+
+import Display from './Display.jsx';
+import Search from './Search.jsx';
+import SavedDates from './SavedDates.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -83,12 +85,12 @@ class App extends React.Component {
     axios.post('/savedDates', {
       date: this.state.date,
       count: this.state.elements,
-      // name: ,
-      // diameter: ,
-      // velocity: ,
-      // distance: ,
-      // hazardous:
-    });
+    })
+    .then(() => {
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   render() {
@@ -101,6 +103,7 @@ class App extends React.Component {
           <Display asteroids={this.state}/>
           <Search searchDate={this.searchDate} handleChange={this.handleChange} />
           <button className='saveTheDate' onClick={this.saveTheDate}>Save This Date</button>
+          <SavedDates saveTheDate={this.saveTheDate}/>
         </div>
       </div>
     );

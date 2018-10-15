@@ -5,7 +5,6 @@ const request = require('request');
 const db = require('./../database/index.js');
 const key = require('./../nasa-key.js');
 
-// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + './../client/dist'));
 app.use(express.json());
 
@@ -27,7 +26,6 @@ app.get('/savedDates', (req, res) => {
       console.log(err)
       res.send(err).status(500);
     } else {
-      console.log(data)
       res.send(data);
     }
   });
@@ -35,7 +33,6 @@ app.get('/savedDates', (req, res) => {
 
 app.post('/savedDates', (req, res) => {
   db.saveDate(req.body, function(err, data) {
-    console.log(req.body)
     if (err) {
       console.log(err, null);
     }
