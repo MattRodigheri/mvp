@@ -18,6 +18,7 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.searchDate = this.searchDate.bind(this);
+    this.saveTheDate = this.saveTheDate.bind(this);
   }
 
   componentDidMount() {
@@ -77,6 +78,13 @@ class App extends React.Component {
     })
   }
 
+  saveTheDate() {
+    axios.post('/savedDates', {
+      date: "EAT ME",
+      count: "EAT ME"
+    });
+  }
+
   render() {
     return (
       <div>
@@ -86,6 +94,7 @@ class App extends React.Component {
         <div className='appContainer'>
           <Display asteroids={this.state}/>
           <Search searchDate={this.searchDate} handleChange={this.handleChange} />
+          <button className='saveTheDate' onClick={this.saveTheDate}>Save This Date</button>
         </div>
       </div>
     );
