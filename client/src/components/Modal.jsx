@@ -9,6 +9,9 @@ const Modal = (props) => {
       <div className="modal-main">
         {props.children}
         <button onClick={props.handleClose}>close</button>
+        <image className='earth' />
+        <div>{props.distance}</div>
+        <image className='asteroid' />
       </div>
     </div>
   );

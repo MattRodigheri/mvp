@@ -30,7 +30,7 @@ class Display extends React.Component {
   render() {
     return (
       <div className='display'>
-        <Modal show={this.state.show} handleClose={this.hideModal} />
+        <Modal show={this.state.show} handleClose={this.hideModal distance={this.props.asteroids.near_earth_objects}} />
         <div>Count: {this.props.asteroids.elements}</div>
         <div>
           {
