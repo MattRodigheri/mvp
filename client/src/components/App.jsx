@@ -80,8 +80,8 @@ class App extends React.Component {
 
   saveTheDate() {
     axios.post('/savedDates', {
-      date: "EAT ME",
-      count: "EAT ME"
+      date: this.state.date,
+      count: this.state.elements
     });
   }
 
