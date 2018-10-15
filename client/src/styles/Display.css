@@ -7,10 +7,22 @@
   margin: 50px 0;
 }
 
-.asteroidImg {
+.elementImage {
+  float: right;
   background-image: url('./../assets/asteroid.png');
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
+  margin-top: 15px;
+}
+
+.elementText {
+  display: inline;
+  margin-right: 350px;
+}
+
+.hazardous {
+  color: rgb(252,61,33);
+  font-weight: normal;
 }
