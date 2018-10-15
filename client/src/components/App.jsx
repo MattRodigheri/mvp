@@ -69,6 +69,7 @@ class App extends React.Component {
     })
     .then((response) => {
       this.setState({
+        date: this.state.searchDate,
         elements: response.data.element_count,
         near_earth_objects: response.data.near_earth_objects[this.state.searchDate]
       })
@@ -81,7 +82,12 @@ class App extends React.Component {
   saveTheDate() {
     axios.post('/savedDates', {
       date: this.state.date,
-      count: this.state.elements
+      count: this.state.elements,
+      // name: ,
+      // diameter: ,
+      // velocity: ,
+      // distance: ,
+      // hazardous:
     });
   }
 

@@ -12,6 +12,11 @@ const saveDate = function(input, callback) {
       callback(err, null);
     }
   });
+  // connection.query(`insert into asteroids (date, name) values ("${input.date}", ${input.count});`, function (err, data) {
+  //   if (err) {
+  //     callback(err, null);
+  //   }
+  // });
 }
 
 const getSavedDates = function(callback) {
