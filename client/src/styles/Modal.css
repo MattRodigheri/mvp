@@ -33,7 +33,7 @@
 .earth {
   position: fixed;
   top: 22%;
-  left: 33%;
+  left: 18%;
   background-image: url('./../assets/cloudyearth.png');
   background-size: 30%;
   background-repeat: no-repeat;
@@ -42,13 +42,18 @@
 }
 
 .info {
+  position: fixed;
+  top: 25%;
+  right: 15%;
   color: white;
+  width: 25%;
+  font-weight: bolder;
 }
 
 .asteroid {
   position: fixed;
   top: 25%;
-  left: 24%;
+  left: 9%;
   background-image: url('./../assets/asteroid.png');
   background-size: 15%;
   background-repeat: no-repeat;
@@ -56,8 +61,8 @@
   height: 50%;
   animation: spin 4s linear infinite;
 }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+@keyframes spin { 100% {transform:rotate(360deg); } }
 
 .display-block {
   display: block;
