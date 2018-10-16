@@ -14,13 +14,16 @@ class App extends React.Component {
       date: '',
       searchDate: '',
       elements: 0,
-      near_earth_objects: []
+      near_earth_objects: [],
+      savedDates: []
     }
 
     this.getData = this.getData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.searchDate = this.searchDate.bind(this);
     this.saveTheDate = this.saveTheDate.bind(this);
+    this.getSavedDates = this.getSavedDates.bind(this);
+
   }
 
   componentDidMount() {
@@ -54,13 +57,26 @@ class App extends React.Component {
     .catch((error) => {
       console.log(error);
     })
+
+    this.getSavedDates();
+  }
+
+  getSavedDates() {
+    axios.get('/savedDates')
+    .then((response) => {
+      this.setState({
+        savedDates: response.data
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   handleChange(event) {
     this.setState({
       searchDate: event.target.value
     })
-  console.log(event.target.value)
   }
 
   searchDate() {
@@ -86,8 +102,9 @@ class App extends React.Component {
       date: this.state.date,
       count: this.state.elements,
     })
-    .then(() => {
-    })
+    .then(
+      this.getSavedDates()
+    )
     .catch((error) => {
       console.log(error);
     })
@@ -103,7 +120,7 @@ class App extends React.Component {
           <Display asteroids={this.state}/>
           <Search searchDate={this.searchDate} handleChange={this.handleChange} />
           <button className='saveTheDate' onClick={this.saveTheDate}>Save This Date</button>
-          <SavedDates saveTheDate={this.saveTheDate}/>
+          <SavedDates savedDates={this.state.savedDates}/>
         </div>
       </div>
     );
