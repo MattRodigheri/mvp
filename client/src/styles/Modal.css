@@ -4,15 +4,15 @@
   left: 0;
   width:100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  /* background: rgba(0, 0, 0, 0.6); */
   z-index: 1;
 }
 
 .modal-main {
   position:fixed;
-  background: white;
-  width: 90%;
-  height: 90%;
+  background: black;
+  width: 100%;
+  height: 100%;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -24,7 +24,7 @@
 .earth {
   position: fixed;
   top: 11%;
-  background-image: url('./../assets/earth.png');
+  background-image: url('./../assets/cloudyearth.png');
   background-size: 40%;
   background-repeat: no-repeat;
   width: 100%;

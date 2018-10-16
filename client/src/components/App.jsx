@@ -21,6 +21,7 @@ class App extends React.Component {
     this.getData = this.getData.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.searchDate = this.searchDate.bind(this);
+    this.searchFromSaved = this.searchFromSaved.bind(this);
     this.saveTheDate = this.saveTheDate.bind(this);
     this.getSavedDates = this.getSavedDates.bind(this);
 
@@ -97,6 +98,25 @@ class App extends React.Component {
     })
   }
 
+  searchFromSaved(event) {
+    axios.get('/asteroids', {
+      params: {
+        date: event
+      }
+    })
+    .then((response) => {
+      this.setState({
+        date: event,
+        // searchDate: this.state.searchDate
+        elements: response.data.element_count,
+        near_earth_objects: response.data.near_earth_objects[event]
+      })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
   saveTheDate() {
     axios.post('/savedDates', {
       date: this.state.date,
@@ -117,10 +137,10 @@ class App extends React.Component {
           <div>Data provided by:</div> <image />
         </div>
         <div className='appContainer'>
-          <Display asteroids={this.state}/>
+          <Display asteroids={this.state} />
           <Search searchDate={this.searchDate} handleChange={this.handleChange} />
           <button className='saveTheDate' onClick={this.saveTheDate}>Save This Date</button>
-          <SavedDates savedDates={this.state.savedDates}/>
+          <SavedDates savedDates={this.state.savedDates} searchFromSaved={this.searchFromSaved}/>
         </div>
       </div>
     );

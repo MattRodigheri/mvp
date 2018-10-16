@@ -12,7 +12,7 @@ const SavedDates = (props) => {
       <div className="savedContainer">
         {
           props.savedDates.map((element) => {
-          return <div key={element.date}>{'Date: ' + element.date + ' Count: ' + element.count}</div>
+          return <div key={element.date} onClick={(event) => props.searchFromSaved(event.target.textContent.slice(6, 16))}>{'Date: ' + element.date + ' Count: ' + element.count}</div>
           })
         }
       </div>
