@@ -107,7 +107,6 @@ class App extends React.Component {
     .then((response) => {
       this.setState({
         date: event,
-        // searchDate: this.state.searchDate
         elements: response.data.element_count,
         near_earth_objects: response.data.near_earth_objects[event]
       })

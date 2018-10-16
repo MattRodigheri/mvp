@@ -11,3 +11,7 @@
   font-size: larger;
   line-height: 2;
 }
+
+.savedDate:hover {
+  cursor: pointer;
+}

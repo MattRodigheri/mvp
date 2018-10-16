@@ -4,7 +4,6 @@
   left: 0;
   width:100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, 0.6); */
   z-index: 1;
 }
 
@@ -16,31 +15,49 @@
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  border: 4px solid rgb(252,61,33);
-  border-radius: 25px;
   padding: 10px 10px;
+}
+
+.close {
+  position: fixed;
+  background-image: url('./../assets/x.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.close:hover {
+  cursor: pointer;
 }
 
 .earth {
   position: fixed;
-  top: 11%;
+  top: 22%;
+  left: 33%;
   background-image: url('./../assets/cloudyearth.png');
-  background-size: 40%;
+  background-size: 30%;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
 }
 
+.info {
+  color: white;
+}
+
 .asteroid {
   position: fixed;
-  top: 45%;
-  left: 80%;
+  top: 25%;
+  left: 24%;
   background-image: url('./../assets/asteroid.png');
-  background-size: 5%;
+  background-size: 15%;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
+  animation: spin 4s linear infinite;
 }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 
 .display-block {
   display: block;
